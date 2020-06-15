@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PMSMinigameApp</string>
+    <string name="labyrinth_game_title">Labyrinth Spiel</string>
+    <string name="coin_game_title">Münzen Spiel</string>
+</resources>

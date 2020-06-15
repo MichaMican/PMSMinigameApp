@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PMSMinigameApp</string>
+    <string name="labyrinth_game_title">Labyrinth Game</string>
+    <string name="coin_game_title">Coin Game</string>
+</resources>
