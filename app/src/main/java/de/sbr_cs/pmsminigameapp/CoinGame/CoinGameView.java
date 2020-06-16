@@ -7,23 +7,39 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class CoinGameView extends View {
-    private Paint ballPaint = new Paint();
-    private Paint brickPaint = new Paint();
-    private Paint coinPaint = new Paint();
+import java.util.ArrayList;
+import java.util.List;
 
-    int viewWidth;
-    int viewHeight;
-    int posx;
-    int posy;
+public class CoinGameView extends View {
+
+    private int viewWidth;
+    private int viewHeight;
+    private ResizeListener resizeListener;
+    private List<Drawable> drawables;
 
     public CoinGameView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        ballPaint.setAntiAlias(true);
-        ballPaint.setStrokeWidth(6f);
-        ballPaint.setColor(Color.BLACK);
-        ballPaint.setStyle(Paint.Style.STROKE);
-        ballPaint.setStrokeJoin(Paint.Join.ROUND);
+        drawables = new ArrayList<>();
+    }
+
+    public int getViewWidth() {
+        return viewWidth;
+    }
+
+    public int getViewHeight() {
+        return viewHeight;
+    }
+
+    public void setResizeListener(ResizeListener resizeListener){
+        this.resizeListener = resizeListener;
+    }
+
+    public void registerDrawable(Drawable d){
+        drawables.add(d);
+    }
+
+    public void unregisterDrawable(Drawable d){
+        drawables.remove(d);
     }
 
     @Override
@@ -31,25 +47,19 @@ public class CoinGameView extends View {
         super.onSizeChanged(w, h, oldw, oldh);
         viewWidth = w;
         viewHeight = h;
+        if (resizeListener != null){
+            resizeListener.onResize(w, h);
+        }
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.drawCircle(posx, posy, 20, ballPaint);
+        for (Drawable d : drawables) {
+            d.draw(canvas);
+        }
     }
 
-    public void move(int dx, int dy) {
-        posx = posx + dx;
-        posy = posy + dy;
-        invalidate();
-        if (posx > viewWidth) {
-            posx = 0;
-        } else if (posy > viewHeight) {
-            posy = 0;
-        } else if (posx < 0) {
-            posx = viewWidth;
-        } else if (posy < 0) {
-            posy = viewHeight;
-        }
+    public void reset() {
+        drawables = new ArrayList<>();
     }
 }
