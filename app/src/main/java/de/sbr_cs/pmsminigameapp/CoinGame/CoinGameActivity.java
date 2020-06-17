@@ -19,6 +19,9 @@ import java.sql.Time;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Coin game activity class
+ */
 public class CoinGameActivity extends AppCompatActivity implements SensorEventListener {
 
     private SensorManager sensorManager;
@@ -26,12 +29,20 @@ public class CoinGameActivity extends AppCompatActivity implements SensorEventLi
     private Timer t;
     private Handler mHandler;
 
+    /**
+     * Displays game over message with score
+     * @param score Score that the player achieved
+     */
     public void triggerGameOver(int score){
         Message message = mHandler.obtainMessage(0, "GAMEOVER - Score: " + score);
         message.sendToTarget();
         t.cancel();
     }
 
+    /**
+     * Initializes the activity
+     * @param savedInstanceState Saved state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +81,10 @@ public class CoinGameActivity extends AppCompatActivity implements SensorEventLi
         }, 0, 10);
     }
 
+    /**
+     * Notifies the coinGameManager about a sensor change
+     * @param event Sensor event
+     */
     @Override
     public void onSensorChanged(SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {

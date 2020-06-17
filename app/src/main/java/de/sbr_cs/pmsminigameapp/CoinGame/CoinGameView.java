@@ -2,14 +2,18 @@ package de.sbr_cs.pmsminigameapp.CoinGame;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import de.sbr_cs.pmsminigameapp.CoinGame.Interface.Drawable;
+import de.sbr_cs.pmsminigameapp.CoinGame.Interface.ResizeListener;
+
+/**
+ * View on which the game is displayed
+ */
 public class CoinGameView extends View {
 
     private int viewWidth;
@@ -17,31 +21,47 @@ public class CoinGameView extends View {
     private ResizeListener resizeListener;
     private List<Drawable> drawables;
 
+    /**
+     * Standart CoinGameView constructor
+     * @param context App context
+     * @param attrs View attributes
+     */
     public CoinGameView(Context context, AttributeSet attrs) {
         super(context, attrs);
         drawables = new ArrayList<>();
     }
 
-    public int getViewWidth() {
-        return viewWidth;
-    }
-
-    public int getViewHeight() {
-        return viewHeight;
-    }
-
+    /**
+     * Register for resize events
+     * @param resizeListener object that should receive resize updates
+     */
     public void setResizeListener(ResizeListener resizeListener){
         this.resizeListener = resizeListener;
     }
 
+    /**
+     * Add drawable to canvas
+     * @param d drawable that should appear on canvas
+     */
     public void registerDrawable(Drawable d){
         drawables.add(d);
     }
 
+    /**
+     * Remove drawable from canvas
+     * @param d drawable that should no longer appear on canvas
+     */
     public void unregisterDrawable(Drawable d){
         drawables.remove(d);
     }
 
+    /**
+     * Notifies subscriber about resolution update
+     * @param w New width in px
+     * @param h New height in  px
+     * @param oldw Old width in px
+     * @param oldh Old height in px
+     */
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
@@ -52,6 +72,10 @@ public class CoinGameView extends View {
         }
     }
 
+    /**
+     * Draws all registered drawables to canvas
+     * @param canvas canvas the drawables should be drawn on
+     */
     @Override
     protected void onDraw(Canvas canvas) {
         for (Drawable d : drawables) {
@@ -59,6 +83,9 @@ public class CoinGameView extends View {
         }
     }
 
+    /**
+     * Reset view. Unregisters all registered drawables
+     */
     public void reset() {
         drawables = new ArrayList<>();
     }
