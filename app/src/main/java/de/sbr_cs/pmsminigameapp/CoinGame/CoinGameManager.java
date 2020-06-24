@@ -3,8 +3,9 @@ package de.sbr_cs.pmsminigameapp.CoinGame;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.sbr_cs.pmsminigameapp.CoinGame.Interface.Collidable;
-import de.sbr_cs.pmsminigameapp.CoinGame.Interface.ResizeListener;
+import de.sbr_cs.pmsminigameapp.FullScreenView;
+import de.sbr_cs.pmsminigameapp.Interface.Collidable;
+import de.sbr_cs.pmsminigameapp.Interface.ResizeListener;
 
 /**
  * Control class for the coin game
@@ -21,7 +22,7 @@ public class CoinGameManager implements ResizeListener {
     private CoinGameActivity coinGameActivity;
     private List<Coin> coins;
     private List<KillerCircle> killerCircles;
-    private CoinGameView coinGameView;
+    private FullScreenView fullScreenView;
     private float canvasWidth;
     private float canvasHeight;
     private float scale;
@@ -32,10 +33,10 @@ public class CoinGameManager implements ResizeListener {
     /**
      * Standard control class constructor
      * @param coinGameActivity Activity where the view is embedded
-     * @param coinGameView View where the canvas to draw on is located
+     * @param fullScreenView View where the canvas to draw on is located
      */
-    public CoinGameManager(CoinGameActivity coinGameActivity, CoinGameView coinGameView) {
-        this.coinGameView = coinGameView;
+    public CoinGameManager(CoinGameActivity coinGameActivity, FullScreenView fullScreenView) {
+        this.fullScreenView = fullScreenView;
         this.coinGameActivity = coinGameActivity;
 
         reset();
@@ -45,15 +46,15 @@ public class CoinGameManager implements ResizeListener {
      * Resets the game
      */
     private void reset() {
-        coinGameView.reset();
+        fullScreenView.reset();
 
         ball = new Ball(50, 50, BALL_RADIUS, 0, 0);
         coins = new ArrayList<>();
         killerCircles = new ArrayList<>();
         score = 0;
 
-        coinGameView.registerDrawable(ball);
-        coinGameView.setResizeListener(this);
+        fullScreenView.registerDrawable(ball);
+        fullScreenView.setResizeListener(this);
         canvasHeight = 100;
         canvasWidth = 100;
 
@@ -99,7 +100,7 @@ public class CoinGameManager implements ResizeListener {
 
     private void handleCoinCollision(List<Coin> coins) {
         for (Coin coin : coins) {
-            coinGameView.unregisterDrawable(coin);
+            fullScreenView.unregisterDrawable(coin);
             coins.remove(coin);
             if(!coin.isCounted()){
                 coin.setCounted();
@@ -129,21 +130,21 @@ public class CoinGameManager implements ResizeListener {
      * Invalidates the current canvas so all drawable that are registered are redrawn
      */
     public void updateView() {
-        coinGameView.postInvalidate();
+        fullScreenView.postInvalidate();
     }
 
     private void spawnCoin(int numberOfCoins) {
         for (int i = 0; i < numberOfCoins; i++) {
             Coin newCoin = new Coin((float) (Math.random() * canvasWidth), (float) (Math.random() * canvasHeight), scale * COIN_RADIUS);
             coins.add(newCoin);
-            coinGameView.registerDrawable(newCoin);
+            fullScreenView.registerDrawable(newCoin);
         }
     }
 
     private void spawnKillerCircle() {
         KillerCircle newKillerCircle = new KillerCircle((float) (Math.random() * canvasWidth), (float) (Math.random() * canvasHeight), (float) (scale * KILL_CIRCLE_MAX_RADIUS * Math.random()));
         killerCircles.add(newKillerCircle);
-        coinGameView.registerDrawable(newKillerCircle);
+        fullScreenView.registerDrawable(newKillerCircle);
     }
 
     /**

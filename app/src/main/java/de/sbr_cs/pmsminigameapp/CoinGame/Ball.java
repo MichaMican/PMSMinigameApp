@@ -3,7 +3,7 @@ package de.sbr_cs.pmsminigameapp.CoinGame;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
-import de.sbr_cs.pmsminigameapp.CoinGame.Interface.Drawable;
+import de.sbr_cs.pmsminigameapp.Interface.Drawable;
 
 /**
  * Ball the player plays with in the coin game
@@ -134,6 +134,11 @@ public class Ball implements Drawable {
      */
     @Override
     public void draw(Canvas canvas) {
-        canvas.drawCircle(x, y, radius, ballPaint);
+        draw(canvas, ballPaint);
+    }
+
+    @Override
+    public void draw(Canvas canvas, Paint paint) {
+        canvas.drawCircle(x, y, radius, paint);
     }
 }

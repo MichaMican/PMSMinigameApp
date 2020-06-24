@@ -1,6 +1,8 @@
 package de.sbr_cs.pmsminigameapp.CoinGame;
 
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 
 import de.sbr_cs.pmsminigameapp.CoinGame.Obstacle;
 

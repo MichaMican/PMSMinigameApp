@@ -2,6 +2,7 @@ package de.sbr_cs.pmsminigameapp.CoinGame;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import de.sbr_cs.pmsminigameapp.FullScreenView;
 import de.sbr_cs.pmsminigameapp.R;
 
 import android.content.DialogInterface;
@@ -13,9 +14,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.widget.Toast;
 
-import java.sql.Time;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -48,7 +47,7 @@ public class CoinGameActivity extends AppCompatActivity implements SensorEventLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coin_game);
 
-        coinGameManager = new CoinGameManager(this, (CoinGameView) findViewById(R.id.coinGameView));
+        coinGameManager = new CoinGameManager(this, (FullScreenView) findViewById(R.id.coinGameView));
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensorManager.registerListener(this,
@@ -59,7 +58,7 @@ public class CoinGameActivity extends AppCompatActivity implements SensorEventLi
             @Override
             public void handleMessage(Message message) {
                 AlertDialog alertDialog = new AlertDialog.Builder(CoinGameActivity.this).create();
-                alertDialog.setTitle("Alert");
+                alertDialog.setTitle("GAME OVER");
                 alertDialog.setMessage((String) message.obj);
                 alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                         new DialogInterface.OnClickListener() {

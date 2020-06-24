@@ -6,13 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".LabyrinthGame.LabyrinthGameActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hier entsteht ein tolles LabyrinthGame"
+    <de.sbr_cs.pmsminigameapp.FullScreenView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/labyrinthGameView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/speakButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:backgroundTint="@android:color/holo_green_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:maxImageSize="40dp"
+        app:srcCompat="@android:drawable/ic_btn_speak_now" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

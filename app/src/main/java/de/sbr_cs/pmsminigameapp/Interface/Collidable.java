@@ -1,4 +1,4 @@
-package de.sbr_cs.pmsminigameapp.CoinGame.Interface;
+package de.sbr_cs.pmsminigameapp.Interface;
 
 import de.sbr_cs.pmsminigameapp.CoinGame.Ball;
 

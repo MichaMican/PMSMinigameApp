@@ -1,4 +1,4 @@
-package de.sbr_cs.pmsminigameapp.CoinGame;
+package de.sbr_cs.pmsminigameapp;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,13 +8,13 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.sbr_cs.pmsminigameapp.CoinGame.Interface.Drawable;
-import de.sbr_cs.pmsminigameapp.CoinGame.Interface.ResizeListener;
+import de.sbr_cs.pmsminigameapp.Interface.Drawable;
+import de.sbr_cs.pmsminigameapp.Interface.ResizeListener;
 
 /**
  * View on which the game is displayed
  */
-public class CoinGameView extends View {
+public class FullScreenView extends View {
 
     private int viewWidth;
     private int viewHeight;
@@ -26,7 +26,7 @@ public class CoinGameView extends View {
      * @param context App context
      * @param attrs View attributes
      */
-    public CoinGameView(Context context, AttributeSet attrs) {
+    public FullScreenView(Context context, AttributeSet attrs) {
         super(context, attrs);
         drawables = new ArrayList<>();
     }
@@ -88,5 +88,13 @@ public class CoinGameView extends View {
      */
     public void reset() {
         drawables = new ArrayList<>();
+    }
+
+    public void hide() {
+        setVisibility(INVISIBLE);
+    }
+
+    public void show() {
+        setVisibility(VISIBLE);
     }
 }

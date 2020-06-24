@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="de.sbr_cs.pmsminigameapp">
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,11 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".LabyrinthGame.LabyrinthGameActivity"
             android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"
-            ></activity>
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".CoinGame.CoinGameActivity"
             android:screenOrientation="portrait"

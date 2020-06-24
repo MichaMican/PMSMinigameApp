@@ -3,9 +3,8 @@ package de.sbr_cs.pmsminigameapp.CoinGame;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
-import de.sbr_cs.pmsminigameapp.CoinGame.Ball;
-import de.sbr_cs.pmsminigameapp.CoinGame.Interface.Collidable;
-import de.sbr_cs.pmsminigameapp.CoinGame.Interface.Drawable;
+import de.sbr_cs.pmsminigameapp.Interface.Collidable;
+import de.sbr_cs.pmsminigameapp.Interface.Drawable;
 
 /**
  * Circular obstacle that can spawn in the coin game
@@ -47,6 +46,11 @@ abstract class Obstacle implements Drawable, Collidable {
      */
     @Override
     public void draw(Canvas canvas) {
+        draw(canvas, this.paint);
+    }
+
+    @Override
+    public void draw(Canvas canvas, Paint paint) {
         canvas.drawCircle(x, y, radius, paint);
     }
 

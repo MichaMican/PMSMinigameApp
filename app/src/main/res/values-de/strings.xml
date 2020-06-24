@@ -3,4 +3,6 @@
     <string name="app_name">PMSMinigameApp</string>
     <string name="labyrinth_game_title">Labyrinth Spiel</string>
     <string name="coin_game_title">Münzen Spiel</string>
+    <string name="listening">Hört zu</string>
+    <string name="stopListening">Hört auf zuzuhören</string>
 </resources>
