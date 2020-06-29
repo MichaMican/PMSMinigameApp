@@ -90,10 +90,16 @@ public class FullScreenView extends View {
         drawables = new ArrayList<>();
     }
 
+    /**
+     * Makes the view invisible
+     */
     public void hide() {
         setVisibility(INVISIBLE);
     }
 
+    /**
+     * Makse the view visible
+     */
     public void show() {
         setVisibility(VISIBLE);
     }

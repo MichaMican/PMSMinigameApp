@@ -40,6 +40,11 @@ public class LabyrinthGameActivity extends AppCompatActivity {
     private Handler mHandler;
     private FullScreenView fullScreenView;
 
+    /**
+     * Gets Localization info of users device
+     * @param context App context
+     * @return returns Locale of users device
+     */
     private Locale getCurrentLocale(Context context){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
             return context.getResources().getConfiguration().getLocales().get(0);
@@ -49,21 +54,31 @@ public class LabyrinthGameActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Triggers game over overlay
+     * @param commandHistory command history which led up to the game over
+     */
     public void triggerGameOver(String commandHistory){
         fullScreenView.show();
         speakButton.hide();
-        Message message = mHandler.obtainMessage(1, "Oh no! You bumped into a wall :(\nYour command history:\n" + commandHistory);
+        Message message = mHandler.obtainMessage(1,  getString(R.string.labyrinthGameOver) + commandHistory);
         message.sendToTarget();
     }
 
+    /**
+     * Triggers success game over overlay
+     */
     public void triggerSuccessGameOver() {
         fullScreenView.show();
         speakButton.hide();
-        Message message = mHandler.obtainMessage(2, "You did it! You successfully made it through the maze");
+        Message message = mHandler.obtainMessage(2, getString(R.string.labyrinthGameOverSuccess));
         message.sendToTarget();
     }
 
-    @SuppressLint("ClickableViewAccessibility")
+    /**
+     * on Create Method of Labyrinth game
+     * @param savedInstanceState saved Instance
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,12 +94,13 @@ public class LabyrinthGameActivity extends AppCompatActivity {
             @Override
             public void handleMessage(Message message) {
                 AlertDialog alertDialog = new AlertDialog.Builder(LabyrinthGameActivity.this).create();
-                alertDialog.setTitle("GAME OVER");
+                alertDialog.setTitle(getString(R.string.gameOver));
                 alertDialog.setMessage((String) message.obj);
                 alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.dismiss();
+                                speechRecognizer.destroy();
                                 LabyrinthGameActivity.this.finish();
                             }
                         });
@@ -123,6 +139,10 @@ public class LabyrinthGameActivity extends AppCompatActivity {
 
             }
 
+            /**
+             * Applies voice commands
+             * @param results voice lines
+             */
             @Override
             public void onResults(Bundle results) {
                 Toast toast = Toast.makeText(getApplicationContext(), R.string.stopListening, Toast.LENGTH_SHORT);
@@ -171,6 +191,10 @@ public class LabyrinthGameActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Checks if user has the record audio permission granted for the app
+     * @return if permission is granted
+     */
     private boolean checkPermission() {
 
         if(ContextCompat.checkSelfPermission(

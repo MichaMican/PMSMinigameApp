@@ -4,13 +4,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Helper class for Voice command processing
+ */
 public abstract class VoiceCommandHelper {
 
-    private static List<String> upSynonyms = Arrays.asList("hoch","rauf","oben","up");
-    private static List<String> rightSynonyms = Arrays.asList("rechts","right");
-    private static List<String> downSynonyms = Arrays.asList("runter","herunter","unten","down");
-    private static List<String> leftSynonyms = Arrays.asList("links","left");
+    //Synonym definitions
+    private static List<String> upSynonyms = Arrays.asList("up", "hoch", "rauf", "oben", "aufwärts", "darüber", "drüber", "hinauf", "vorwärts", "vorran", "nord", "norden", "nördlich");
+    private static List<String> rightSynonyms = Arrays.asList("right", "rechts", "steuerbord", "rechte", "ost", "osten", "östlich");
+    private static List<String> downSynonyms = Arrays.asList("down", "runter", "herunter", "unten", "rückwärts", "süd", "süden", "südlich");
+    private static List<String> leftSynonyms = Arrays.asList("left", "links", "backbord", "linke", "westen", "west", "westlich");
 
+    /**
+     * converts a command word to a move direction
+     * @param word command word
+     * @return Direction the word commands | returns null if the provided word isn't a move command
+     */
     public static Direction convertWordToDirection(String word){
 
         if(upSynonyms.contains(word.toLowerCase())){
@@ -22,7 +31,6 @@ public abstract class VoiceCommandHelper {
         } else if (leftSynonyms.contains(word.toLowerCase())){
             return Direction.LEFT;
         }
-
 
         return null;
     }

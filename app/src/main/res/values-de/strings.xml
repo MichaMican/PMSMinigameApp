@@ -5,4 +5,7 @@
     <string name="coin_game_title">Münzen Spiel</string>
     <string name="listening">Hört zu</string>
     <string name="stopListening">Hört auf zuzuhören</string>
+    <string name="labyrinthGameOver">Schade! Du bist in eine Wand gestoßen :(\nAnweisungsverlauf:\n</string>
+    <string name="labyrinthGameOverSuccess">Geschafft! Du hast das Labyrinth erfolgreich absolviert!</string>
+    <string name="gameOver">SPIEL VORBEI</string>
 </resources>

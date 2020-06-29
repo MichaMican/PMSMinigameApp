@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">PMSMinigameApp</string>
-    <string name="labyrinth_game_title">Labyrinth Game</string>
+    <string name="labyrinth_game_title">Maze Game</string>
     <string name="coin_game_title">Coin Game</string>
     <string name="listening">Listening</string>
-    <string name="stopListening">Stopp Listening</string>
+    <string name="stopListening">Stop Listening</string>
+    <string name="labyrinthGameOver">Oh no! You bumped into a wall :(\nYour command history:\n</string>
+    <string name="labyrinthGameOverSuccess">You did it! You successfully made it through the maze</string>
+    <string name="gameOver">GAME OVER</string>
 </resources>

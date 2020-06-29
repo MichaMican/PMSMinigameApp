@@ -8,9 +8,15 @@ import android.graphics.Paint;
  */
 public interface Drawable {
     /**
-     * Draws the object on the provided canvas
+     * Draws the object on the provided canvas with standard color
      * @param canvas Canvas on which the object should be drawn
      */
     void draw(Canvas canvas);
+
+    /**
+     * Draws the object on the provided canvas with specified paint
+     * @param canvas Canvas on which the object should be drawn
+     * @param paint Paint the object should be displayed with
+     */
     void draw(Canvas canvas, Paint paint);
 }

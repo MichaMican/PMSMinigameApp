@@ -11,16 +11,26 @@ import java.util.stream.Collectors;
 
 import de.sbr_cs.pmsminigameapp.Interface.Drawable;
 
+/**
+ * Maze Object
+ */
 public class Labyrinth implements Drawable {
     private List<LabyrinthPath> paths;
     private Point currentPos;
     private double scale;
     private Figure figure;
 
+    /**
+     * Standard constructor
+     */
     public Labyrinth(){
         paths = new ArrayList<>();
     }
 
+    /**
+     * Sets scale on all objects that belong to the maze
+     * @param scale
+     */
     public void setScale(double scale) {
         this.scale = scale;
         for (LabyrinthPath p: paths) {
@@ -71,10 +81,10 @@ public class Labyrinth implements Drawable {
     }
 
     /**
-     *
-     * @param numberOfNodes
-     * @param maxX
-     * @param maxY
+     * Generates a new Maze path
+     * @param numberOfNodes Number of generation steps
+     * @param maxX Maze grid X Max
+     * @param maxY Maze grid Y Max
      * @return start Position of Figure
      */
     public Point generatePath(int numberOfNodes, int maxX, int maxY){
@@ -111,6 +121,22 @@ public class Labyrinth implements Drawable {
         return currentPos;
     }
 
+    /**
+     * Checks if all Path have been visited
+     * @return if all Paths have been visited by the figure
+     */
+    public boolean isCompleted() {
+        boolean isCompleted = true;
+        for (LabyrinthPath path:paths) {
+            isCompleted &= path.isMovedOver();
+        }
+        return isCompleted;
+    }
+
+    /**
+     * Draws all Maze objects to the canvas
+     * @param canvas Canvas on which the object should be drawn
+     */
     @Override
     public void draw(Canvas canvas) {
         for (LabyrinthPath p: paths) {
@@ -119,16 +145,13 @@ public class Labyrinth implements Drawable {
         figure.draw(canvas);
     }
 
+    /**
+     * Draws all Maze objects to the canvas
+     * @param canvas Canvas on which the object should be drawn
+     * @param paint Paint the object should be displayed with
+     */
     @Override
     public void draw(Canvas canvas, Paint paint) {
         draw(canvas);
-    }
-
-    public boolean isCompleted() {
-        boolean isCompleted = true;
-        for (LabyrinthPath path:paths) {
-            isCompleted &= path.isMovedOver();
-        }
-        return isCompleted;
     }
 }

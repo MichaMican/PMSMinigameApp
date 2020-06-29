@@ -58,7 +58,7 @@ public class CoinGameActivity extends AppCompatActivity implements SensorEventLi
             @Override
             public void handleMessage(Message message) {
                 AlertDialog alertDialog = new AlertDialog.Builder(CoinGameActivity.this).create();
-                alertDialog.setTitle("GAME OVER");
+                alertDialog.setTitle(R.string.gameOver);
                 alertDialog.setMessage((String) message.obj);
                 alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                         new DialogInterface.OnClickListener() {

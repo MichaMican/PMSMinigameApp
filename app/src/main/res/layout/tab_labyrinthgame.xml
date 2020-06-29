@@ -11,7 +11,7 @@
         android:id="@+id/placholderImage1"
         android:layout_width="284dp"
         android:layout_height="460dp"
-        android:src="@drawable/placeholder"
+        android:src="@drawable/labyrinth_game"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

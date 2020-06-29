@@ -99,7 +99,10 @@ public class CoinGameManager implements ResizeListener {
     }
 
     private void handleCoinCollision(List<Coin> coins) {
-        for (Coin coin : coins) {
+
+        List<Coin> coinsCpy = new ArrayList<>(coins);
+
+        for (Coin coin : coinsCpy) {
             fullScreenView.unregisterDrawable(coin);
             coins.remove(coin);
             if(!coin.isCounted()){
