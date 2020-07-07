@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">PMSMinigameApp</string>
+    <string name="app_name">Minigame App</string>
     <string name="labyrinth_game_title">Labyrinth Spiel</string>
     <string name="coin_game_title">Münzen Spiel</string>
     <string name="listening">Hört zu</string>
@@ -8,4 +8,13 @@
     <string name="labyrinthGameOver">Schade! Du bist in eine Wand gestoßen :(\nAnweisungsverlauf:\n</string>
     <string name="labyrinthGameOverSuccess">Geschafft! Du hast das Labyrinth erfolgreich absolviert!</string>
     <string name="gameOver">SPIEL VORBEI</string>
+    <string name="help">Hilfe</string>
+    <string name="helpCoin">
+        Kippe das Handy um den schwarzen Ball zu bewegen.\nSammle die gelben Kreise ein und berühre die roten
+        Kreise nicht.
+    </string>
+    <string name="helpLabyrinth">
+        Merke dir den Pfad.\nKommandiere danach blind den grünen Kreis durch die Pfade, sodass jeder
+        Pfad mindestens einmal besucht wurde.
+    </string>
 </resources>

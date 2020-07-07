@@ -60,7 +60,7 @@ public class CoinGameActivity extends AppCompatActivity implements SensorEventLi
                 AlertDialog alertDialog = new AlertDialog.Builder(CoinGameActivity.this).create();
                 alertDialog.setTitle(R.string.gameOver);
                 alertDialog.setMessage((String) message.obj);
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.dismiss();

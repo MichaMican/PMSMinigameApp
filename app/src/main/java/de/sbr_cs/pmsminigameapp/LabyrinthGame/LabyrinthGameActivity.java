@@ -49,7 +49,7 @@ public class LabyrinthGameActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
             return context.getResources().getConfiguration().getLocales().get(0);
         } else{
-            //noinspection deprecation
+            //no inspection deprecation
             return context.getResources().getConfiguration().locale;
         }
     }
@@ -96,7 +96,7 @@ public class LabyrinthGameActivity extends AppCompatActivity {
                 AlertDialog alertDialog = new AlertDialog.Builder(LabyrinthGameActivity.this).create();
                 alertDialog.setTitle(getString(R.string.gameOver));
                 alertDialog.setMessage((String) message.obj);
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.dismiss();

@@ -9,7 +9,7 @@
     tools:context=".MainScreen.main.ui.TabCoinGameFragment">
 
     <ImageView
-        android:id="@+id/placholderImage2"
+        android:id="@+id/coinGameImage"
         android:layout_width="284dp"
         android:layout_height="460dp"
         android:src="@drawable/coin_game"
@@ -18,25 +18,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/startCoinGameButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/placholderImage2" />
-
     <TextView
         android:id="@+id/coinGameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/coin_game_title"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/placholderImage2"
+        app:layout_constraintBottom_toTopOf="@+id/coinGameImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/helpCoinGame"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/baseline_help_outline_black_18dp"
+        app:layout_constraintBottom_toTopOf="@+id/coinGameImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/coinGameImage"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.516" />
+
+    <ImageButton
+        android:id="@+id/startCoinGameButton"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="@drawable/play"
+        android:scaleType="fitCenter"
+        android:src="@drawable/play"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coinGameImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

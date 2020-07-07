@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PMSMinigameApp</string>
+    <string name="app_name">Minigame App</string>
     <string name="labyrinth_game_title">Maze Game</string>
     <string name="coin_game_title">Coin Game</string>
     <string name="listening">Listening</string>
@@ -7,4 +7,13 @@
     <string name="labyrinthGameOver">Oh no! You bumped into a wall :(\nYour command history:\n</string>
     <string name="labyrinthGameOverSuccess">You did it! You successfully made it through the maze</string>
     <string name="gameOver">GAME OVER</string>
+    <string name="help">Help</string>
+    <string name="helpCoin">
+        Tilt your phone to move the black ball.\nCollect the yellow circles while avoiding touching
+        the red circles.
+    </string>
+    <string name="helpLabyrinth">
+        Memorize the shown path.\nCommand blindly the green circle through the paths with your voice so that
+        every path is visited at least once.
+    </string>
 </resources>
