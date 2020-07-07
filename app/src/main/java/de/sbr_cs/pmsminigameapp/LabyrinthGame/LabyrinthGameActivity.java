@@ -90,6 +90,8 @@ public class LabyrinthGameActivity extends AppCompatActivity {
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         speechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, getCurrentLocale(getApplicationContext()));
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mHandler = new Handler(Looper.getMainLooper()) {
             @Override
             public void handleMessage(Message message) {

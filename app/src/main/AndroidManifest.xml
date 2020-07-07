@@ -14,10 +14,12 @@
 
         <activity
             android:name=".LabyrinthGame.LabyrinthGameActivity"
+            android:parentActivityName=".MainScreen.MainActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".CoinGame.CoinGameActivity"
+            android:parentActivityName=".MainScreen.MainActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity"
             />

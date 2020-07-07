@@ -54,6 +54,8 @@ public class CoinGameActivity extends AppCompatActivity implements SensorEventLi
                 sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
                 SensorManager.SENSOR_DELAY_NORMAL);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mHandler = new Handler(Looper.getMainLooper()) {
             @Override
             public void handleMessage(Message message) {
